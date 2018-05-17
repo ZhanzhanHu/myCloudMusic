@@ -1,0 +1,461 @@
+.player {
+
+  z-index: 100;
+}
+
+.play-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgb(255,255,255);
+  .bar-left {
+    width: 60%;
+    padding-left: 1rem;
+  }
+
+  .bar-left img {
+    width: 0.7rem;
+    height: 0.7rem;
+    position: absolute;
+    left: 0.2rem;
+    top: 50%;
+    transform: translate3d(0,-50%,0);
+    object-fit: cover;
+  }
+
+  .bar-left .bar-text {
+    font-size: 0.24rem;
+    color: #bbb;
+    line-height: 0.38rem;
+    padding: 0.12rem 0;
+    text-align: left;
+  }
+
+  .circle {
+    position: absolute;
+    top: 50%;
+    right: 1.2rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    transform: translate3d(0,-50%,0);
+    border: solid 0.02rem rgb(238, 76, 94);
+    border-radius: 100%;
+    background: #fff;
+
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+
+    .stop {
+      border-style: solid;
+      border-width: 0.13rem 0 0.13rem 0.28rem;
+      border-color: transparent transparent transparent rgb(238, 76, 94);
+      transform: translate3d(-35%,-50%,0);
+    }
+
+    .start {
+      width: 0.2rem;
+      height: 0.25rem;
+      border-left: solid 0.03rem rgb(238, 76, 94);
+      border-right: solid 0.03rem rgb(238, 76, 94);
+      transform: translate3d(-50%,-50%,0);
+    }
+  }
+
+  .list {
+    position: absolute;
+    top: 50%;
+    right: 0.4rem;
+    width: 0.4rem;
+    height: 0.3rem;
+    transform: translate3d(0,-50%,0);
+    border-top: 0.03rem solid #b5b5b5;
+    border-bottom: 0.03rem solid #b5b5b5;
+    div {
+      position: relative;
+      top: 50%;
+      transform: translate3d(0,-50%,0);
+      height: 0;
+      border-top: 0.03rem solid #b5b5b5;
+    }
+  }
+}
+//播放列表
+
+.play-list {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  .hidden-list {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 105;
+  }
+
+  .list-content {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 60%;
+    z-index: 1000;
+    font-size: 0.06rem;
+    background: pink;
+    overflow-y: auto;
+    background: #fff;
+
+    .li-info {
+      border-bottom: 1px solid rgba(230, 235, 233,0.4);
+      position: relative;
+      padding: 0.15rem 0.3rem;
+    }
+
+    .trumpet {
+      width: 0.25rem;
+      height: 0.25rem;
+      position: absolute;
+      top: 50%;
+      left: 0.2rem;
+      transform: translate3d(0,-50%,0);
+      display: none;
+      object-fit: cover;
+    }
+
+    .li-info div:nth-of-type(1) {
+      font-size: 0.28rem;
+      display: inline-block;
+    }
+
+    .li-info div:nth-of-type(2) {
+      color: #b5b5b5;
+      display: inline-block;
+    }
+
+    .show-trumpet {
+      padding-left: 0.7rem;
+
+      .trumpet {
+        display: block;
+      }
+    }
+
+    .delate {
+      width: 0.5rem;
+      height: 0.5rem;
+      position: absolute;
+      top: 50%;
+      right: 0.3rem;
+      transform: translate3d(0,-50%,0);
+      transition: all 3s;
+    }
+  }
+}
+//播放列表过度动画
+
+.bg-leave-active {
+  transition: opacity 0.5s;
+}
+
+.bg-leave-to {
+  opacity: 0;
+}
+
+.list-up-enter,
+.list-up-leave-to {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.list-up-enter-active,
+.list-up-leave-active {
+  transition: all 0.5s;
+}
+//播放页面
+
+.play-page {
+  width: 100%;
+  height: 100%;
+  .play-head {
+    width: calc(100% - 1.5rem);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: blak;
+    font-size: 1rem;
+    z-index: 105;
+    background: rgba(255,255,255,0);
+    padding: 0.3rem 0 0.15rem;
+    border-bottom: 1px solid rgba(225,225,225,0.5);
+
+    .arrow {
+      background-image: url("../../assets/image/playPage/arrow.png");
+      width: 0.5rem;
+      height: 0.5rem;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 50%;
+      left: 0.3rem;
+      transform: translate3d(0,-50%,0);
+    }
+
+    .play-title {
+      padding-left: 1rem;
+      font-weight: 200;
+
+      :first-of-type {
+        color: #fff;
+        font-size: 0.3rem;
+        line-height: 0.3rem;
+        margin-bottom: 0.15rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      :last-of-type {
+        color: rgb(152, 151, 152);
+        font-size: 0.20rem;
+        line-height: 0.22rem;
+      }
+    }
+  }
+
+  .play-circle {
+    position: absolute;
+    top: 24%;
+    left: 50%;
+    transform: translate3d(-50%,0,0);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255 ,.2);
+    z-index: 100;
+  }
+
+  .swiper-container {
+    width: 100%;
+    height: calc(100% - 11rem);
+    position: absolute;
+    z-index: 101;
+    top: 2.6rem;
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      .disc {
+        position: absolute;
+        left: 50%;
+        margin-left: -2.5rem;
+        background-image: url("../../assets/image/playPage/disc.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 5rem;
+        height: 5rem;
+        &.disc-animation {
+          animation: disc 10s linear infinite running;
+          @keyframes disc {
+            0% {
+              transform: rotate(0deg);
+            }
+
+            100% {
+              transform: rotate(-360deg);
+            }
+          }
+        }
+        &.disc-animation-stop{
+          animation-play-state: paused;
+        }
+
+
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate3d(-50%,-50%,0);
+          width: 3.5rem;
+          height: 3.5rem;
+          border-radius: 100%;
+        }
+      }
+    }
+  }
+
+  .play-page-bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: blur(1rem);
+    box-shadow: 0 0 2rem 0 rgb(0,0,0,.5) inset;
+    z-index: 99;
+    transition: all 1s;
+  }
+
+  .player-module {
+    width: 100%;
+    margin: 0.4rem auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 105;
+    .player-module-top {
+      width: 100%;
+      text-align: center;
+
+      img {
+        opacity: 0.6;
+        width: 0.5rem;
+        height: 0.5rem;
+        margin: 0 0.3rem;
+        display: inline-block;
+      }
+    }
+
+    .player-module-bar {
+      width: 100%;
+      position: relative;
+      margin: 0.3rem 0;
+      text-align: center;
+      .player-bar{
+        position: relative;
+        left: 50%;
+        transform: translate3d(-50%,0,0);
+        height: 0.03rem;
+        background-color: rgba(250,250,250,0.7);
+        .player-progress{
+          height: 0.03rem;
+          background: rgb(198, 41, 41);
+
+        }
+        .player-spot{
+          width: 0.25rem;
+          height: 0.25rem;
+          border-radius: 100%;
+          background: rgba(250,250,250,1);
+          position: absolute;
+          top: 0;
+          transform: translate3d(0,-50%,0);
+          div{
+            width:0.08rem;
+            height: 0.08rem;
+            background: rgb(235, 47, 47);
+            border-radius: 100%;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate3d(-50%,-50%,0);
+          }
+        }
+      }
+
+      .time {
+        opacity: 0.6;
+        color: #fff;
+        font-size: 0.20rem;
+        position: absolute;
+        top: 50%;
+        transform: translate3d(0,-50%,0);
+      }
+
+      .start-time {
+        left: 0.6rem;
+      }
+
+      .end-time {
+        right: 0.6rem;
+      }
+    }
+
+    .player-module-bottom {
+      width: 100%;
+      text-align: center;
+      .player-list,img{
+        width: 0.5rem;
+        height: 0.5rem;
+        display: inline-block;
+        object-fit: cover;
+        opacity: 0.7;
+        vertical-align: center;
+        margin:0 0.25rem;
+      }
+      .player-circle{
+        width: 0.8rem;
+        height: 0.8rem;
+        border: solid 0.05rem rgba(250, 250, 250,0.7);
+        border-radius: 100%;
+        display: inline-block;
+        margin:0 0.25rem;
+        transform:translate3d(0,0.2rem,0);
+        .center {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+        }
+        .stop {
+          border-style: solid;
+          border-width: 0.14rem 0 0.14rem 0.28rem;
+          border-color: transparent transparent transparent #fff;
+          transform: translate3d(-40%,-50%,0);
+        }
+
+        .start {
+          width: 0.2rem;
+          height: 0.25rem;
+          border-left: solid 0.03rem #fff;
+          border-right: solid 0.03rem #fff;
+          transform: translate3d(-50%,-50%,0);
+        }
+      }
+      .player-list {
+        width: 0.5rem;
+        height: 0.4rem;
+        border-top: 0.03rem solid #fff;
+        border-bottom: 0.03rem solid #fff;
+        div {
+          position: relative;
+          top: 50%;
+          transform: translate3d(0,-50%,0);
+          height: 0;
+          border-top: 0.03rem solid #fff;
+        }
+      }
+      .changePlayerTypeCaption{
+        width: 1.8rem;
+        padding: 0.2rem 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%,-50%,0);
+        background-color: rgba(0,0,0,0.8);
+        border-radius:0.35rem;
+        color: #fff;
+        font-size: 0.28rem;
+        text-align: center;
+        z-index:110;
+        font-weight: 200;
+      }
+      .playerCaption-enter,
+      .playerCaption-leave-to {
+        opacity: 0;
+      }
+      .playerCaption-enter-active,
+      .playerCaption-leave-active {
+        transition: all 0.6s;
+      }
+    }
+  }
+}

@@ -1,0 +1,125 @@
+.hotMusicList{
+  width: 100%;
+  padding: 0;
+  .boutiquePlaylist-top{
+    background: rgb(88, 85, 88);
+    position: relative;
+    padding: 0.5rem 0;
+    img{
+      width: 2.5rem;
+      height: 2.5rem;
+      display: block;
+      margin-left: 0.5rem;
+    }
+    p{
+      font-size: 0.2rem;
+      margin: 0;
+      color: #fff;
+      font-weight: 100;
+    }
+    div:nth-of-type(1){
+      position: absolute;
+      left:3.5rem;
+      top: 50%;
+      transform: translate3d(0,-50%,0);
+      width: 50%;
+
+      p:nth-of-type(1){
+        font-size: 0.36rem;
+      }
+      p:nth-of-type(2){
+        width: 100%;
+        font-size: 0.26;
+        margin-top: 0.15rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      p:nth-of-type(3){
+        color: rgb(237, 237, 237);
+        line-height: 0.5rem;
+      }
+    }
+  }
+  .playlist-group{
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+    justify-content:space-between;
+    padding-bottom: 1.2rem;
+    .playlist-member{
+      width: 49.5%;
+      font-size: 0.26rem;
+      margin-top: 0.3rem;
+      p{
+        width: 95%;
+        margin:0 auto;
+        overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      .top{
+        width: 100%;
+        position: relative;
+        color: #fff;
+        font-size: 0.24rem;
+        img{
+          width: 100%;
+          height: 3.5rem;
+        }
+        .headset{
+          width: 1.6rem;
+          position: absolute;
+          top: 0.1rem;
+          right: 0rem;
+          div{
+            background-image: url('../../assets/image/boutiquePlaylist/headsetIcon.png');
+            background-size:100% 100%;
+            background-repeat: no-repeat;
+            width: 0.25rem;
+            height: 0.25rem;
+          }
+          p{
+            width: 1rem;
+            position: absolute;
+            left: 0.4rem;
+            top: 50%;
+            transform: translate3d(0,-50%,0);
+          }
+
+        }
+
+        .person{
+          position: absolute;
+          bottom: 0rem;
+          width: 3.5rem;
+          bottom: 0.15rem;
+          left: 0.15rem;
+          div:nth-child(1){
+            background-image: url('../../assets/image/boutiquePlaylist/person.png');
+            background-size:100% 100%;
+            background-repeat: no-repeat;
+            width: 0.25rem;
+            height: 0.25rem;
+            position: relative;
+            top: 50%;
+            transform: translate3d(0,-50%,0);
+          }
+          p{
+            width: 85%;
+            position: absolute;
+            left: 0.4rem;
+            bottom: 0rem;
+            // line-height: 0.2rem;
+            margin: 0;
+
+          }
+        }
+
+      }
+    }
+
+  }
+
+}

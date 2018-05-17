@@ -1,0 +1,58 @@
+.list{
+  width: 100%;
+  height: 100%;
+  .list-top{
+    height: 40%;
+    padding-top: 0.4rem;
+    padding: 0.4rem;
+    background-size: cover;
+    background-position: center center;
+    object-fit: cover;
+    img:nth-of-type(1){
+      width: 3rem;
+      height: 3rem;
+      display: inline-block;
+    }
+    .title{
+      font-size: 0.4rem;
+      color: #fff;
+      width: 45%;
+      float: right;
+      margin-right: 0.1rem;
+      margin-top: 0.5rem;
+      clear: both;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient: vertical;
+    }
+    .icons{
+      margin-top: 0.3rem;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content:space-around;
+        div{
+          display: inline-block;
+          text-align: center;
+          img{
+            width: 0.5rem;
+            height: 0.5rem;
+            display: block;
+            margin: 0 auto;
+          }
+          p{
+            margin: 0.1rem 0;
+            font-size: 0.2rem;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+          }
+        }
+    }
+  }
+
+
+}
